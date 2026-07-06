@@ -4,10 +4,14 @@ All locators use saucedemo's stable `data-test` attributes.
 """
 from __future__ import annotations
 
+import logging
+
 from playwright.sync_api import Page
 
 from config import settings
 from pages.base_page import BasePage
+
+log = logging.getLogger(__name__)
 
 
 class LoginPage(BasePage):
@@ -23,6 +27,7 @@ class LoginPage(BasePage):
         return self
 
     def login(self, username: str, password: str = settings.PASSWORD) -> None:
+        log.info("Logging in as %r", username)
         if username:
             self.username_input.fill(username)
         if password:

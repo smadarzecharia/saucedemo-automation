@@ -10,6 +10,7 @@ password, missing-field validation.
 
 ```bash
 cd saucedemo-automation
+cp .env.example .env        # credentials & users live here (gitignored)
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/playwright install chromium
